@@ -22,6 +22,8 @@ Partial Class Form1
     'Do not modify it using the code editor.
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
+        Dim ChartArea1 As System.Windows.Forms.DataVisualization.Charting.ChartArea = New System.Windows.Forms.DataVisualization.Charting.ChartArea()
+        Dim Series1 As System.Windows.Forms.DataVisualization.Charting.Series = New System.Windows.Forms.DataVisualization.Charting.Series()
         Me.AGauge1 = New AGauge.AGauge()
         Me.Button1 = New System.Windows.Forms.Button()
         Me.TextBox1 = New System.Windows.Forms.TextBox()
@@ -41,7 +43,13 @@ Partial Class Form1
         Me.Label7 = New System.Windows.Forms.Label()
         Me.AGauge2 = New AGauge.AGauge()
         Me.Label8 = New System.Windows.Forms.Label()
+        Me.AGauge3 = New AGauge.AGauge()
+        Me.Label9 = New System.Windows.Forms.Label()
+        Me.Label10 = New System.Windows.Forms.Label()
+        Me.Label11 = New System.Windows.Forms.Label()
+        Me.Chart1 = New System.Windows.Forms.DataVisualization.Charting.Chart()
         Me.Panel1.SuspendLayout()
+        CType(Me.Chart1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'AGauge1
@@ -59,27 +67,27 @@ Partial Class Form1
         Me.AGauge1.CapText = ""
         Me.AGauge1.Center = New System.Drawing.Point(100, 100)
         Me.AGauge1.Location = New System.Drawing.Point(50, 248)
-        Me.AGauge1.MaxValue = 400.0!
-        Me.AGauge1.MinValue = -100.0!
+        Me.AGauge1.MaxValue = 100.0!
+        Me.AGauge1.MinValue = 0!
         Me.AGauge1.Name = "AGauge1"
         Me.AGauge1.NeedleColor1 = AGauge.AGauge.NeedleColorEnum.Gray
         Me.AGauge1.NeedleColor2 = System.Drawing.Color.DimGray
         Me.AGauge1.NeedleRadius = 80
         Me.AGauge1.NeedleType = 0
         Me.AGauge1.NeedleWidth = 2
-        Me.AGauge1.Range_Idx = CType(0, Byte)
-        Me.AGauge1.RangeColor = System.Drawing.Color.LightGreen
-        Me.AGauge1.RangeEnabled = True
-        Me.AGauge1.RangeEndValue = 300.0!
+        Me.AGauge1.Range_Idx = CType(4, Byte)
+        Me.AGauge1.RangeColor = System.Drawing.Color.Yellow
+        Me.AGauge1.RangeEnabled = False
+        Me.AGauge1.RangeEndValue = 0!
         Me.AGauge1.RangeInnerRadius = 70
         Me.AGauge1.RangeOuterRadius = 80
-        Me.AGauge1.RangesColor = New System.Drawing.Color() {System.Drawing.Color.LightGreen, System.Drawing.Color.Red, System.Drawing.SystemColors.Control, System.Drawing.SystemColors.Control, System.Drawing.SystemColors.Control}
+        Me.AGauge1.RangesColor = New System.Drawing.Color() {System.Drawing.Color.LightGreen, System.Drawing.Color.Red, System.Drawing.SystemColors.Control, System.Drawing.SystemColors.Control, System.Drawing.Color.Yellow}
         Me.AGauge1.RangesEnabled = New Boolean() {True, True, False, False, False}
-        Me.AGauge1.RangesEndValue = New Single() {300.0!, 400.0!, 0!, 0!, 0!}
+        Me.AGauge1.RangesEndValue = New Single() {100.0!, 100.0!, 0!, 0!, 0!}
         Me.AGauge1.RangesInnerRadius = New Integer() {70, 70, 70, 70, 70}
         Me.AGauge1.RangesOuterRadius = New Integer() {80, 80, 80, 80, 80}
-        Me.AGauge1.RangesStartValue = New Single() {-100.0!, 300.0!, 0!, 0!, 0!}
-        Me.AGauge1.RangeStartValue = -100.0!
+        Me.AGauge1.RangesStartValue = New Single() {0!, 70.0!, 0!, 0!, 0!}
+        Me.AGauge1.RangeStartValue = 0!
         Me.AGauge1.ScaleLinesInterColor = System.Drawing.Color.Black
         Me.AGauge1.ScaleLinesInterInnerRadius = 73
         Me.AGauge1.ScaleLinesInterOuterRadius = 80
@@ -87,7 +95,7 @@ Partial Class Form1
         Me.AGauge1.ScaleLinesMajorColor = System.Drawing.Color.Black
         Me.AGauge1.ScaleLinesMajorInnerRadius = 70
         Me.AGauge1.ScaleLinesMajorOuterRadius = 80
-        Me.AGauge1.ScaleLinesMajorStepValue = 50.0!
+        Me.AGauge1.ScaleLinesMajorStepValue = 10.0!
         Me.AGauge1.ScaleLinesMajorWidth = 2
         Me.AGauge1.ScaleLinesMinorColor = System.Drawing.Color.Gray
         Me.AGauge1.ScaleLinesMinorInnerRadius = 75
@@ -108,7 +116,7 @@ Partial Class Form1
         'Button1
         '
         Me.Button1.Font = New System.Drawing.Font("Consolas", 14.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Button1.Location = New System.Drawing.Point(380, 438)
+        Me.Button1.Location = New System.Drawing.Point(390, 688)
         Me.Button1.Name = "Button1"
         Me.Button1.Size = New System.Drawing.Size(136, 49)
         Me.Button1.TabIndex = 1
@@ -117,7 +125,7 @@ Partial Class Form1
         '
         'TextBox1
         '
-        Me.TextBox1.Location = New System.Drawing.Point(0, 438)
+        Me.TextBox1.Location = New System.Drawing.Point(-30, 479)
         Me.TextBox1.Name = "TextBox1"
         Me.TextBox1.Size = New System.Drawing.Size(158, 20)
         Me.TextBox1.TabIndex = 2
@@ -228,9 +236,9 @@ Partial Class Form1
         '
         Me.TextBox7.BackColor = System.Drawing.SystemColors.ButtonFace
         Me.TextBox7.BorderStyle = System.Windows.Forms.BorderStyle.None
-        Me.TextBox7.Location = New System.Drawing.Point(599, 321)
+        Me.TextBox7.Location = New System.Drawing.Point(699, 378)
         Me.TextBox7.Name = "TextBox7"
-        Me.TextBox7.Size = New System.Drawing.Size(29, 13)
+        Me.TextBox7.Size = New System.Drawing.Size(42, 13)
         Me.TextBox7.TabIndex = 13
         '
         'Label6
@@ -268,27 +276,27 @@ Partial Class Form1
         Me.AGauge2.CapText = ""
         Me.AGauge2.Center = New System.Drawing.Point(100, 100)
         Me.AGauge2.Location = New System.Drawing.Point(350, 248)
-        Me.AGauge2.MaxValue = 400.0!
-        Me.AGauge2.MinValue = -100.0!
+        Me.AGauge2.MaxValue = 150.0!
+        Me.AGauge2.MinValue = 0!
         Me.AGauge2.Name = "AGauge2"
         Me.AGauge2.NeedleColor1 = AGauge.AGauge.NeedleColorEnum.Gray
         Me.AGauge2.NeedleColor2 = System.Drawing.Color.DimGray
         Me.AGauge2.NeedleRadius = 80
         Me.AGauge2.NeedleType = 0
         Me.AGauge2.NeedleWidth = 2
-        Me.AGauge2.Range_Idx = CType(0, Byte)
-        Me.AGauge2.RangeColor = System.Drawing.Color.LightGreen
+        Me.AGauge2.Range_Idx = CType(1, Byte)
+        Me.AGauge2.RangeColor = System.Drawing.Color.Red
         Me.AGauge2.RangeEnabled = True
-        Me.AGauge2.RangeEndValue = 300.0!
+        Me.AGauge2.RangeEndValue = 150.0!
         Me.AGauge2.RangeInnerRadius = 70
         Me.AGauge2.RangeOuterRadius = 80
         Me.AGauge2.RangesColor = New System.Drawing.Color() {System.Drawing.Color.LightGreen, System.Drawing.Color.Red, System.Drawing.SystemColors.Control, System.Drawing.SystemColors.Control, System.Drawing.SystemColors.Control}
         Me.AGauge2.RangesEnabled = New Boolean() {True, True, False, False, False}
-        Me.AGauge2.RangesEndValue = New Single() {300.0!, 400.0!, 0!, 0!, 0!}
+        Me.AGauge2.RangesEndValue = New Single() {150.0!, 150.0!, 0!, 0!, 0!}
         Me.AGauge2.RangesInnerRadius = New Integer() {70, 70, 70, 70, 70}
         Me.AGauge2.RangesOuterRadius = New Integer() {80, 80, 80, 80, 80}
-        Me.AGauge2.RangesStartValue = New Single() {-100.0!, 300.0!, 0!, 0!, 0!}
-        Me.AGauge2.RangeStartValue = -100.0!
+        Me.AGauge2.RangesStartValue = New Single() {45.0!, 105.0!, 0!, 0!, 0!}
+        Me.AGauge2.RangeStartValue = 105.0!
         Me.AGauge2.ScaleLinesInterColor = System.Drawing.Color.Black
         Me.AGauge2.ScaleLinesInterInnerRadius = 73
         Me.AGauge2.ScaleLinesInterOuterRadius = 80
@@ -296,7 +304,7 @@ Partial Class Form1
         Me.AGauge2.ScaleLinesMajorColor = System.Drawing.Color.Black
         Me.AGauge2.ScaleLinesMajorInnerRadius = 70
         Me.AGauge2.ScaleLinesMajorOuterRadius = 80
-        Me.AGauge2.ScaleLinesMajorStepValue = 50.0!
+        Me.AGauge2.ScaleLinesMajorStepValue = 15.0!
         Me.AGauge2.ScaleLinesMajorWidth = 2
         Me.AGauge2.ScaleLinesMinorColor = System.Drawing.Color.Gray
         Me.AGauge2.ScaleLinesMinorInnerRadius = 75
@@ -324,11 +332,121 @@ Partial Class Form1
         Me.Label8.TabIndex = 16
         Me.Label8.Text = "Psi"
         '
+        'AGauge3
+        '
+        Me.AGauge3.BaseArcColor = System.Drawing.Color.Gray
+        Me.AGauge3.BaseArcRadius = 80
+        Me.AGauge3.BaseArcStart = 135
+        Me.AGauge3.BaseArcSweep = 270
+        Me.AGauge3.BaseArcWidth = 2
+        Me.AGauge3.Cap_Idx = CType(1, Byte)
+        Me.AGauge3.CapColors = New System.Drawing.Color() {System.Drawing.Color.Black, System.Drawing.Color.Black, System.Drawing.Color.Black, System.Drawing.Color.Black, System.Drawing.Color.Black}
+        Me.AGauge3.CapPosition = New System.Drawing.Point(10, 10)
+        Me.AGauge3.CapsPosition = New System.Drawing.Point() {New System.Drawing.Point(10, 10), New System.Drawing.Point(10, 10), New System.Drawing.Point(10, 10), New System.Drawing.Point(10, 10), New System.Drawing.Point(10, 10)}
+        Me.AGauge3.CapsText = New String() {"", "", "", "", ""}
+        Me.AGauge3.CapText = ""
+        Me.AGauge3.Center = New System.Drawing.Point(100, 100)
+        Me.AGauge3.Location = New System.Drawing.Point(634, 248)
+        Me.AGauge3.MaxValue = 10.0!
+        Me.AGauge3.MinValue = 0!
+        Me.AGauge3.Name = "AGauge3"
+        Me.AGauge3.NeedleColor1 = AGauge.AGauge.NeedleColorEnum.Gray
+        Me.AGauge3.NeedleColor2 = System.Drawing.Color.DimGray
+        Me.AGauge3.NeedleRadius = 80
+        Me.AGauge3.NeedleType = 0
+        Me.AGauge3.NeedleWidth = 2
+        Me.AGauge3.Range_Idx = CType(0, Byte)
+        Me.AGauge3.RangeColor = System.Drawing.Color.LightGreen
+        Me.AGauge3.RangeEnabled = True
+        Me.AGauge3.RangeEndValue = 10.0!
+        Me.AGauge3.RangeInnerRadius = 70
+        Me.AGauge3.RangeOuterRadius = 80
+        Me.AGauge3.RangesColor = New System.Drawing.Color() {System.Drawing.Color.LightGreen, System.Drawing.Color.Red, System.Drawing.SystemColors.Control, System.Drawing.SystemColors.Control, System.Drawing.SystemColors.Control}
+        Me.AGauge3.RangesEnabled = New Boolean() {True, True, False, False, False}
+        Me.AGauge3.RangesEndValue = New Single() {10.0!, 10.0!, 0!, 0!, 0!}
+        Me.AGauge3.RangesInnerRadius = New Integer() {70, 70, 70, 70, 70}
+        Me.AGauge3.RangesOuterRadius = New Integer() {80, 80, 80, 80, 80}
+        Me.AGauge3.RangesStartValue = New Single() {3.0!, 6.0!, 0!, 0!, 0!}
+        Me.AGauge3.RangeStartValue = 3.0!
+        Me.AGauge3.ScaleLinesInterColor = System.Drawing.Color.Black
+        Me.AGauge3.ScaleLinesInterInnerRadius = 73
+        Me.AGauge3.ScaleLinesInterOuterRadius = 80
+        Me.AGauge3.ScaleLinesInterWidth = 1
+        Me.AGauge3.ScaleLinesMajorColor = System.Drawing.Color.Black
+        Me.AGauge3.ScaleLinesMajorInnerRadius = 70
+        Me.AGauge3.ScaleLinesMajorOuterRadius = 80
+        Me.AGauge3.ScaleLinesMajorStepValue = 1.0!
+        Me.AGauge3.ScaleLinesMajorWidth = 2
+        Me.AGauge3.ScaleLinesMinorColor = System.Drawing.Color.Gray
+        Me.AGauge3.ScaleLinesMinorInnerRadius = 75
+        Me.AGauge3.ScaleLinesMinorNumOf = 9
+        Me.AGauge3.ScaleLinesMinorOuterRadius = 80
+        Me.AGauge3.ScaleLinesMinorWidth = 1
+        Me.AGauge3.ScaleNumbersColor = System.Drawing.Color.Black
+        Me.AGauge3.ScaleNumbersFormat = Nothing
+        Me.AGauge3.ScaleNumbersRadius = 95
+        Me.AGauge3.ScaleNumbersRotation = 0
+        Me.AGauge3.ScaleNumbersStartScaleLine = 0
+        Me.AGauge3.ScaleNumbersStepScaleLines = 1
+        Me.AGauge3.Size = New System.Drawing.Size(243, 225)
+        Me.AGauge3.TabIndex = 17
+        Me.AGauge3.Text = "AGauge3"
+        Me.AGauge3.Value = 0!
+        '
+        'Label9
+        '
+        Me.Label9.AutoSize = True
+        Me.Label9.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label9.Location = New System.Drawing.Point(747, 376)
+        Me.Label9.Name = "Label9"
+        Me.Label9.Size = New System.Drawing.Size(34, 20)
+        Me.Label9.TabIndex = 18
+        Me.Label9.Text = "Bar"
+        '
+        'Label10
+        '
+        Me.Label10.AutoSize = True
+        Me.Label10.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label10.Location = New System.Drawing.Point(418, 215)
+        Me.Label10.Name = "Label10"
+        Me.Label10.Size = New System.Drawing.Size(73, 20)
+        Me.Label10.TabIndex = 19
+        Me.Label10.Text = "Sensor 2"
+        '
+        'Label11
+        '
+        Me.Label11.AutoSize = True
+        Me.Label11.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label11.Location = New System.Drawing.Point(704, 215)
+        Me.Label11.Name = "Label11"
+        Me.Label11.Size = New System.Drawing.Size(73, 20)
+        Me.Label11.TabIndex = 20
+        Me.Label11.Text = "Sensor 3"
+        '
+        'Chart1
+        '
+        ChartArea1.Name = "ChartArea1"
+        Me.Chart1.ChartAreas.Add(ChartArea1)
+        Me.Chart1.Location = New System.Drawing.Point(16, 433)
+        Me.Chart1.Name = "Chart1"
+        Series1.ChartArea = "ChartArea1"
+        Series1.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Line
+        Series1.Name = "Series1"
+        Me.Chart1.Series.Add(Series1)
+        Me.Chart1.Size = New System.Drawing.Size(277, 155)
+        Me.Chart1.TabIndex = 21
+        Me.Chart1.Text = "Chart1"
+        '
         'Form1
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(875, 505)
+        Me.ClientSize = New System.Drawing.Size(875, 749)
+        Me.Controls.Add(Me.Chart1)
+        Me.Controls.Add(Me.Label11)
+        Me.Controls.Add(Me.Label10)
+        Me.Controls.Add(Me.Label9)
+        Me.Controls.Add(Me.AGauge3)
         Me.Controls.Add(Me.Label8)
         Me.Controls.Add(Me.Label7)
         Me.Controls.Add(Me.Label6)
@@ -345,6 +463,7 @@ Partial Class Form1
         Me.Text = "Form1"
         Me.Panel1.ResumeLayout(False)
         Me.Panel1.PerformLayout()
+        CType(Me.Chart1, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
         Me.PerformLayout()
 
@@ -369,4 +488,9 @@ Partial Class Form1
     Friend WithEvents Label7 As Label
     Friend WithEvents AGauge2 As AGauge.AGauge
     Friend WithEvents Label8 As Label
+    Friend WithEvents AGauge3 As AGauge.AGauge
+    Friend WithEvents Label9 As Label
+    Friend WithEvents Label10 As Label
+    Friend WithEvents Label11 As Label
+    Friend WithEvents Chart1 As DataVisualization.Charting.Chart
 End Class

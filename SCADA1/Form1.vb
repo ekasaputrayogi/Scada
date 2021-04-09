@@ -10,9 +10,9 @@ Public Class Form1
 
     End Sub
     Private Sub ReceiveMessages(state As Object)
-        Dim toReceive(100000) As Byte
+        Dim toReceive(100) As Byte
         Dim received As String = ""
-
+        Dim x As Integer = 0
         Try
             TCPClientstream = TCPClients.GetStream()
             While True
@@ -26,8 +26,14 @@ Public Class Form1
                     TextBox3.Text = Parsing(1).Value
                     TextBox4.Text = Parsing(2).Value
                     TextBox5.Text = Format(Parsing(0).Value * (100 / 4095), "0.00")
-                    TextBox6.Text = Format(Parsing(1).Value * (100 / 4095), "0.00")
-                    TextBox7.Text = Format(Parsing(2).Value * (100 / 4095), "0.00")
+                    TextBox6.Text = Format(Parsing(1).Value * (150 / 4095), "0.00")
+                    TextBox7.Text = Format(Parsing(2).Value * (10 / 4095), "0.00")
+                    AGauge1.Value = TextBox5.Text
+                    AGauge2.Value = TextBox6.Text
+                    AGauge3.Value = TextBox7.Text
+
+                    x = x + 1
+                    Chart1.Series(0).Points.AddXY(x, TextBox5.Text)
 
                 End If
                 '-----------------koordinat- manual----------------------------------
