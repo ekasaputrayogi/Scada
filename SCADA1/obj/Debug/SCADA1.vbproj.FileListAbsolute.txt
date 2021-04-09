@@ -1,0 +1,14 @@
+C:\Users\DELL\source\repos\SCADA1\SCADA1\bin\Debug\SCADA1.exe.config
+C:\Users\DELL\source\repos\SCADA1\SCADA1\bin\Debug\SCADA1.exe
+C:\Users\DELL\source\repos\SCADA1\SCADA1\bin\Debug\SCADA1.pdb
+C:\Users\DELL\source\repos\SCADA1\SCADA1\bin\Debug\SCADA1.xml
+C:\Users\DELL\source\repos\SCADA1\SCADA1\bin\Debug\AGauge.dll
+C:\Users\DELL\source\repos\SCADA1\SCADA1\obj\Debug\SCADA1.vbprojAssemblyReference.cache
+C:\Users\DELL\source\repos\SCADA1\SCADA1\obj\Debug\SCADA1.Form1.resources
+C:\Users\DELL\source\repos\SCADA1\SCADA1\obj\Debug\SCADA1.Resources.resources
+C:\Users\DELL\source\repos\SCADA1\SCADA1\obj\Debug\SCADA1.vbproj.GenerateResource.cache
+C:\Users\DELL\source\repos\SCADA1\SCADA1\obj\Debug\SCADA1.vbproj.CoreCompileInputs.cache
+C:\Users\DELL\source\repos\SCADA1\SCADA1\obj\Debug\SCADA1.vbproj.CopyComplete
+C:\Users\DELL\source\repos\SCADA1\SCADA1\obj\Debug\SCADA1.exe
+C:\Users\DELL\source\repos\SCADA1\SCADA1\obj\Debug\SCADA1.xml
+C:\Users\DELL\source\repos\SCADA1\SCADA1\obj\Debug\SCADA1.pdb
